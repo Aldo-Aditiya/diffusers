@@ -42,6 +42,13 @@ def get_down_block(
     resnet_time_scale_shift="default",
 ):
     down_block_type = down_block_type[7:] if down_block_type.startswith("UNetRes") else down_block_type
+    
+    print(down_block_type)
+    try:
+        print(cross_attention_dim)
+    except:
+        pass
+    
     if down_block_type == "DownBlock2D":
         return DownBlock2D(
             num_layers=num_layers,
